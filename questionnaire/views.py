@@ -1,5 +1,5 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render
 
 # Create your views here.
-def welcome_questionnaire(request):
-    return HttpResponse("Welcome to the 6 DAY-PLAN Questionnaire.")
+def get_questionnaire_questions(request):
+    return render(request, 'questionnaire/questionnaire_questions.html')

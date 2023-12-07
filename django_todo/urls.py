@@ -15,9 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from questionnaire.views import welcome_questionnaire
+from questionnaire.views import get_questionnaire_questions
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('questionnaire/', welcome_questionnaire)
+    path('', get_questionnaire_questions, name = 'get_questionnaire_questions')
 ]
