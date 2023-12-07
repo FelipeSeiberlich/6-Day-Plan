@@ -20,4 +20,5 @@ from questionnaire.views import get_questionnaire_questions
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', get_questionnaire_questions, name = 'get_questionnaire_questions')
+
 ]
