@@ -6,6 +6,17 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>6 Day Personal Training Questionnaire</h1> 
+    <h1>6 Day Personal Training Questionnaire</h1>
+
+    <table>
+        {% for item in items %}
+            <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ item.done }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+
 </body>
 </html>
