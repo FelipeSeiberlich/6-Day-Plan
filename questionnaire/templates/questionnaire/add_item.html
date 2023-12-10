@@ -5,8 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <h1>Add a question.</h1>
+<body><h1>1. Have you any previous gym experience?</h1>
+    <form method="POST" action="add">
+        <div>
+            <p>
+                <label for="answer">Answer: </label>
+                <input type="text" id="answer" name="user_answer">
+            </p>
+        </div>
+        <div>
+            <p>
+                <label for="answered">Done: </label>
+                <input type="checkbox" id="answered" name="user_answered">
+            </p>
+
+        </div>
+        <div>
+            <p>
+                <button type="submit">Submit</button>
+            </p>
+        </div>
+
+    </form>
 
 </body>
 </html>

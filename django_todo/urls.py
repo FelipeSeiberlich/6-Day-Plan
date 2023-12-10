@@ -21,5 +21,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', get_questionnaire_questions, name = 'get_questionnaire_questions'),
     path('add', add_item, name = 'add')
-
 ]
