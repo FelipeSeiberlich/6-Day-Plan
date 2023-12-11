@@ -8,25 +8,12 @@
 <body><h1>1. Have you any previous gym experience?</h1>
     <form method="POST" action="add">
         {% csrf_token %}
-        <div>
-            <p>
-                <label for="answer">Answer: </label>
-                <input type="text" id="answer" name="user_answer">
-            </p>
-        </div>
-        <div>
-            <p>
-                <label for="done">Done: </label>
-                <input type="checkbox" id="done" name="done">
-            </p>
-
-        </div>
+        {{ form.as_p }}
         <div>
             <p>
                 <button type="submit">Submit</button>
             </p>
         </div>
-
     </form>
 
 </body>

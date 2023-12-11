@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Item
+from .forms import ItemForm
 
 # Create your views here.
 
@@ -13,10 +14,16 @@ def get_questionnaire_questions(request):
 
 def add_item(request):
     if request.method == 'POST':
-        name = request.POST.get('user_answer')
-        done = 'done' in request.POST
-        Item.objects.create(name=name, done=done)
+        form = ItemForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('get_questionnaire_questions')
+    form = ItemForm()
+    context = {
+        'form': form
+    }
+    return render(request, 'questionnaire/add_item.html', context)
 
-        return redirect('get_questionnaire_questions')
-    return render(request, 'questionnaire/add_item.html')
+def edit_item(request, item_id):
+    return render(request, 'questionnaire/edit_answer.html')
 
