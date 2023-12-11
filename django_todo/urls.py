@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from questionnaire.views import get_questionnaire_questions, add_item
+from questionnaire.views import get_questionnaire_questions, add_item, edit_item
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', get_questionnaire_questions, name = 'get_questionnaire_questions'),
-    path('add', add_item, name = 'add')
+    path('add', add_item, name = 'add'),
+    path('edit/<item_id>', edit_item, name = 'edit'),
 ]

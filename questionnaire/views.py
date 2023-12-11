@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Item
 from .forms import ItemForm
 
@@ -24,6 +24,17 @@ def add_item(request):
     }
     return render(request, 'questionnaire/add_item.html', context)
 
+
 def edit_item(request, item_id):
-    return render(request, 'questionnaire/edit_answer.html')
+    item = get_object_or_404(Item, id=item_id)
+    if request.method == 'POST':
+        form = ItemForm(request.POST, instance=item)
+        if form.is_valid():
+            form.save()
+            return redirect('get_questionnaire_questions')
+    form = ItemForm(instance=item)
+    context = {
+        'form': form
+    }
+    return render(request, 'questionnaire/edit_answer.html', context)
 
